@@ -11,7 +11,7 @@ matrix:
     - php: 5.6
       dist: trusty
 
-script: php -r 'var_dump(gd_info());'
+script: php -r '$gd = gd_info(); var_dump($gd); exit((int) !$gd["FreeType Support"]);'
 
 notifications:
   emails: false
