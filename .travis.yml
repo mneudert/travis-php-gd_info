@@ -16,7 +16,9 @@ matrix:
       dist: trusty
       env: DIST=trusty
 
-script: php -r '$gd = gd_info(); var_dump($gd); exit((int) !$gd["FreeType Support"]);'
+script: |-
+  php --version
+  php -r '$gd = gd_info(); var_dump($gd); exit((int) !$gd["FreeType Support"]);'
 
 notifications:
   email: false
