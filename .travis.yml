@@ -19,4 +19,4 @@ matrix:
 script: php -r '$gd = gd_info(); var_dump($gd); exit((int) !$gd["FreeType Support"]);'
 
 notifications:
-  emails: false
+  email: false
