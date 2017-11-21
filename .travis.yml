@@ -1,20 +1,22 @@
 language: php
 sudo: false
 
-matrix:
+jobs:
   include:
-    - php: 5.5
+    - &test_precise
+      stage: test
+      php: 5.5
       dist: precise
       env: DIST=precise
-    - php: 5.5
+    - <<: *test_precise
+      php: 5.6
+    - &test_trusty
+      stage: test
+      php: 5.5
       dist: trusty
       env: DIST=trusty
-    - php: 5.6
-      dist: precise
-      env: DIST=precise
-    - php: 5.6
-      dist: trusty
-      env: DIST=trusty
+    - <<: *test_trusty
+      php: 5.6
 
 script: |-
   php --version
